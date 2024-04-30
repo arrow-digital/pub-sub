@@ -6,9 +6,6 @@ import { submitMessageWhatsapp } from '@/util/createWhatsappMessage';
 export class Controller {
   public static publish = async (req: Request, res: Response) => {
     const { message, channel } = req.body;
-    // console.log(req.body);
-
-    // console.log(JSON.stringify(req.body));
 
     await redisClient.publish(channel, JSON.stringify(message));
 
